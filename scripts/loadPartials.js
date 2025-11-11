@@ -12,5 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPartial("#top", "partials/top.html");
   loadPartial("#navbar", "partials/navbar.html");
   loadPartial("#footer", "partials/footer.html");
-  loadPartial("#adBox", "partials/adBox.html");
+  loadPartial("#adBoxBottom", "partials/adBoxBottom.html");
+  loadPartial("#adBoxRight", "partials/adBoxRight.html");
+  loadPartial("#adBoxLeft", "partials/adBoxLeft.html");
 });
