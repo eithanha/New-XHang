@@ -46,3 +46,23 @@ h3 {
   color: rgb(60, 60, 255);
   text-decoration: none;
 }
+
+.nav-link.active {
+  color: #0077cc; /* text color for active link */
+  font-weight: bold; /* make it stand out */
+  border-bottom: 2px solid #0077cc; /* underline effect */
+}
+
+.nav-link {
+  color: #333; /* default link color */
+  transition: all 0.3s; /* smooth hover effect */
+}
+
+.nav-link:hover {
+  color: #005fa3;
+}
+
+#navbarNav {
+  font-size: large;
+  font-style: inherit;
+}
