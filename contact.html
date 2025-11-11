@@ -7,7 +7,90 @@
     <div id="top"></div>
     <div id="navbar"></div>
 
-    <h1>About Us</h1>
+    <div
+      style="
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+      "
+    >
+      <h2 style="text-align: center; color: #000000; margin-bottom: 20px">
+        Contact Me
+      </h2>
+      <form action="https://formspree.io/f/mqawkbkr" method="POST">
+        <label
+          for="email"
+          style="display: block; margin-bottom: 8px; font-weight: bold"
+          >Your Email:</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+          style="
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+          "
+        />
+
+        <label
+          for="message"
+          style="display: block; margin-bottom: 8px; font-weight: bold"
+          >Your Message:</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Write your message here..."
+          required
+          style="
+            width: 100%;
+            padding: 10px;
+            height: 150px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            resize: vertical;
+          "
+        ></textarea>
+
+        <button
+          type="submit"
+          style="
+            width: 100%;
+            padding: 12px;
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          "
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Optional hover effect for button -->
+    <style>
+      button:hover {
+        background-color: #005fa3;
+      }
+    </style>
 
     <div id="adBox"></div>
     <div id="footer"></div>
