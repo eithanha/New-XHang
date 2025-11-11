@@ -7,7 +7,7 @@ function loadPartial(selector, url) {
     .catch((err) => console.error(`Error loading ${url}:`, err));
 }
 
-// Load navbar and footer
+// Load navbar, footer, etc...
 document.addEventListener("DOMContentLoaded", () => {
   loadPartial("#top", "partials/top.html");
   loadPartial("#navbar", "partials/navbar.html");
