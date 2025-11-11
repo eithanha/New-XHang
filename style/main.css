@@ -21,3 +21,28 @@ h1 {
   height: 200px; /* fixed height */
   object-fit: cover;
 }
+
+.ad-responsive {
+  width: 100%;
+  max-width: 728px; /* desktop */
+  height: auto;
+  min-height: 90px;
+  margin: 20px auto;
+}
+
+#markdown-container {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 20px auto;
+  color: #333;
+}
+#markdown-container h1,
+h2,
+h3 {
+  color: #000000;
+}
+#markdown-container a {
+  color: rgb(60, 60, 255);
+  text-decoration: none;
+}

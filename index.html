@@ -2,15 +2,30 @@
 <html lang="en">
   <head>
     <title>Home</title>
-    <div id="top"></div>
   </head>
   <body>
+    <div id="top"></div>
     <div id="navbar"></div>
 
     <h1>Welcome to the Home Page</h1>
 
+    <div id="markdown-container"></div>
+
+    <div id="adBox"></div>
+
     <div id="footer"></div>
 
     <script src="scripts/loadPartials.js"></script>
+    <script type="module">
+      import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
+      fetch("markDown/intro.md")
+        .then((response) => response.text())
+        .then((md) => {
+          document.getElementById("markdown-container").innerHTML =
+            marked.parse(md);
+        })
+        .catch((err) => console.error("Failed to load Markdown:", err));
+    </script>
   </body>
 </html>
