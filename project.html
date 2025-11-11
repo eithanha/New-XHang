@@ -2,13 +2,75 @@
 <html lang="en">
   <head>
     <title>Projects</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.min.js"></script>
+
     <div id="top"></div>
   </head>
   <body>
     <div id="navbar"></div>
 
     <h1>Welcome to the Project Page</h1>
+    <div class="card-container">
+      <div class="card" style="width: 18rem">
+        <img
+          src="/assets/images/astroidGame.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <div class="game-card">
+            <a href="projects/asteroids/index.html" target="_blank">
+              <h3>Asteroids</h3>
+            </a>
 
+            <div id="game-container"></div>
+          </div>
+          <p class="card-text">
+            A classic game of astroid. Press the space bar to shoot and hear the
+            laser break the astroid into small pieces.
+          </p>
+        </div>
+      </div>
+      <br />
+      <div class="card" style="width: 18rem">
+        <img
+          src="/assets/images/flappyBird.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <div class="game-card">
+            <a href="projects/flappyBird/index.html" target="_blank">
+              <h3>Flappy Bird</h3>
+            </a>
+
+            <div id="game-container"></div>
+          </div>
+          <p class="card-text">
+            A recreation of the sensational game Flappy Bird. Press the space
+            bar to make the bird jump between the pipes.
+          </p>
+        </div>
+      </div>
+
+      <br />
+      <div class="card" style="width: 18rem">
+        <img src="/assets/images/pong.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <div class="game-card">
+            <a href="projects/pong/index.html" target="_blank">
+              <h3>Pong</h3>
+            </a>
+
+            <div id="game-container"></div>
+          </div>
+          <p class="card-text">
+            A recreation of Pong where you play against yourself. Right player
+            is "W" and "S", left player is up and down arrow keys.
+          </p>
+        </div>
+      </div>
+    </div>
     <div id="footer"></div>
 
     <script src="scripts/loadPartials.js"></script>

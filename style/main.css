@@ -8,3 +8,16 @@
 h1 {
   text-align: center;
 }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to next line on small screens */
+  gap: 20px; /* Space between cards */
+  justify-content: center;
+}
+
+.card img {
+  width: 100%; /* makes image span full card width */
+  height: 200px; /* fixed height */
+  object-fit: cover;
+}
