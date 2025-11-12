@@ -11,9 +11,12 @@
   --bg-secondary: #ffffff;
   --border-color: #e2e8f0;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -26,7 +29,8 @@ body {
   margin: 0;
   background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #93c5fd 100%);
   background-attachment: fixed;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   color: var(--text-primary);
   line-height: 1.6;
 }
@@ -42,7 +46,11 @@ body {
   padding: 40px 20px;
   left: 0%;
   text-align: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.95) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 250, 252, 0.95) 100%
+  );
   border-top: 1px solid var(--border-color);
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -56,7 +64,11 @@ h1 {
   color: var(--text-primary);
   margin: 2rem 0 1.5rem;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -75,6 +87,16 @@ h3 {
   font-weight: 600;
   color: var(--text-primary);
   margin: 1.25rem 0 0.75rem;
+}
+
+/* Subtitle h3 that appears directly after h1 */
+h1 + h3 {
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
 }
 
 .card-container {
@@ -191,7 +213,11 @@ button,
 .btn {
   width: 100%;
   padding: 0.875rem 1.5rem;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -206,7 +232,11 @@ button,
 
 button:hover,
 .btn:hover {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark) 0%,
+    var(--primary-color) 100%
+  );
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -247,7 +277,8 @@ img[alt="Blue Banner"] {
 }
 
 #markdown-container {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   line-height: 1.8;
   max-width: 800px;
   margin: 2rem auto;
@@ -328,7 +359,7 @@ img[alt="Blue Banner"] {
   border-radius: 4px;
   font-size: 0.9em;
   color: var(--primary-dark);
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 #markdown-container pre {
@@ -402,7 +433,7 @@ img[alt="Blue Banner"] {
 .ad-left {
   position: absolute;
   left: 20px;
-  top: 180px;
+  top: 250px;
   width: 160px;
   height: 600px;
   background: var(--bg-secondary);
@@ -416,7 +447,7 @@ img[alt="Blue Banner"] {
 .ad-right {
   position: absolute;
   right: 20px;
-  top: 180px;
+  top: 250px;
   width: 160px;
   height: 600px;
   background: var(--bg-secondary);
@@ -449,11 +480,11 @@ img[alt="Blue Banner"] {
     width: 150px;
     height: 550px;
   }
-  
+
   .ad-left {
     left: 10px;
   }
-  
+
   .ad-right {
     right: 10px;
   }
@@ -465,19 +496,19 @@ img[alt="Blue Banner"] {
     width: 130px;
     height: 450px;
   }
-  
+
   .ad-left {
     left: 5px;
   }
-  
+
   .ad-right {
     right: 5px;
   }
-  
+
   .ad-bottom {
     max-width: 800px;
   }
-  
+
   /* Adjust content to avoid side ads */
   .content {
     width: calc(100% - 300px);
@@ -491,11 +522,11 @@ img[alt="Blue Banner"] {
     width: 120px;
     height: 400px;
   }
-  
+
   .ad-bottom {
     max-width: 750px;
   }
-  
+
   /* Adjust content to avoid side ads */
   .content {
     width: calc(100% - 280px);
@@ -640,13 +671,13 @@ img[alt="Blue Banner"] {
     order: 2;
     z-index: 10000;
   }
-  
+
   /* Ensure navbar is on top when menu is open */
   .navbar {
     z-index: 9998;
     position: relative;
   }
-  
+
   #menu-toggle:checked ~ .navbar-collapse ~ * {
     pointer-events: none;
   }
@@ -676,7 +707,7 @@ img[alt="Blue Banner"] {
     display: block !important;
     pointer-events: auto;
   }
-  
+
   /* Ensure navbar stays on top when menu is open */
   #menu-toggle:checked ~ .hamburger {
     z-index: 10000;
@@ -763,15 +794,31 @@ html {
   text-align: center;
 }
 
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; }
+.mt-1 {
+  margin-top: 0.5rem;
+}
+.mt-2 {
+  margin-top: 1rem;
+}
+.mt-3 {
+  margin-top: 1.5rem;
+}
+.mt-4 {
+  margin-top: 2rem;
+}
 
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 2rem; }
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 1rem;
+}
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+.mb-4 {
+  margin-bottom: 2rem;
+}
 
 /* Animations */
 @keyframes fadeIn {
@@ -852,4 +899,3 @@ form,
     border: none;
   }
 }
-
