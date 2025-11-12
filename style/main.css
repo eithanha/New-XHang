@@ -201,6 +201,10 @@ h1 + h3 {
   line-height: 1.6;
 }
 
+.card-body a:has(#card-text),
+a:has(#card-text) {
+  text-decoration: none;
+}
 /* Form Styles */
 form {
   max-width: 600px;
