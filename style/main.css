@@ -490,10 +490,10 @@ img[alt="Blue Banner"] {
   width: 160px;
   height: 600px;
   background: transparent;
+  border: none;
+  outline: none;
   z-index: 999;
-
   border-radius: 12px;
-
   overflow: hidden;
 }
 
@@ -504,10 +504,10 @@ img[alt="Blue Banner"] {
   width: 160px;
   height: 600px;
   background: transparent;
+  border: none;
+  outline: none;
   z-index: 999;
-
   border-radius: 12px;
-
   overflow: hidden;
 }
 
@@ -519,10 +519,21 @@ img[alt="Blue Banner"] {
   margin: 40px auto;
   padding: 1rem;
   background: transparent;
+  border: none;
+  outline: none;
   text-align: center;
-
   border-radius: 12px;
   z-index: 999;
+}
+
+/* Make Google AdSense elements transparent */
+.ad-left ins,
+.ad-right ins,
+.ad-bottom ins,
+.adsbygoogle {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
 }
 
 /* Responsive ad boxes - progressive sizing to prevent interference */
