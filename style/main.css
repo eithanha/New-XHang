@@ -27,18 +27,67 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #93c5fd 100%);
+  padding: 0;
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e293b 30%,
+    #334155 60%,
+    #1e40af 100%
+  );
   background-attachment: fixed;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
-  color: var(--text-primary);
+  color: #ffffff;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+}
+
+/* Split-screen layout */
+.main-layout {
+  display: flex;
+  min-height: calc(100vh - 100px);
+  position: relative;
+}
+
+.content-panel {
+  flex: 0 0 66.666%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  padding: 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.gradient-panel {
+  flex: 0 0 33.334%;
+  background: linear-gradient(180deg, #1e40af 0%, #2563eb 50%, #0ea5e9 100%);
+  position: relative;
+  z-index: 0;
+}
+
+/* Hide navbar on main pages with split layout */
+body.has-split-layout .navbar {
+  display: none;
+}
+
+body.has-split-layout #top {
+  display: none;
+}
+
+body.has-split-layout #adBoxRight,
+body.has-split-layout #adBoxLeft,
+body.has-split-layout #adBoxBottom {
+  display: none;
 }
 
 #footer {

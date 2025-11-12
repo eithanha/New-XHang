@@ -6,9 +6,9 @@ function loadPartial(selector, url, callback) {
       if (element) {
         element.innerHTML = html;
         // Execute any scripts in the loaded HTML
-        const scripts = element.querySelectorAll('script');
+        const scripts = element.querySelectorAll("script");
         scripts.forEach((oldScript) => {
-          const newScript = document.createElement('script');
+          const newScript = document.createElement("script");
           Array.from(oldScript.attributes).forEach((attr) => {
             newScript.setAttribute(attr.name, attr.value);
           });
@@ -27,19 +27,23 @@ function loadPartial(selector, url, callback) {
 // Set active nav link function (will be called after navbar loads)
 function setActiveNavLink() {
   const currentPath = window.location.pathname;
-  const currentPage = currentPath.split('/').pop() || 'index.html';
-  
-  const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar .container-fluid > .nav-link');
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    const linkHref = link.getAttribute('href');
+  const currentPage = currentPath.split("/").pop() || "index.html";
+
+  const navLinks = document.querySelectorAll(
+    ".navbar-nav .nav-link, .navbar .container-fluid > .nav-link"
+  );
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    const linkHref = link.getAttribute("href");
     if (linkHref) {
-      const linkPage = linkHref.split('/').pop();
-      if (linkPage === currentPage || 
-          (currentPage === '' && linkPage === 'index.html') ||
-          (currentPage === 'index.html' && linkPage === 'index.html')) {
-        link.classList.add('active');
+      const linkPage = linkHref.split("/").pop();
+      if (
+        linkPage === currentPage ||
+        (currentPage === "" && linkPage === "index.html") ||
+        (currentPage === "index.html" && linkPage === "index.html")
+      ) {
+        link.classList.add("active");
       }
     }
   });
@@ -52,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setActiveNavLink();
     // Setup hamburger menu after navbar loads
     setTimeout(() => {
-      if (typeof setupHamburgerMenu === 'function') {
+      if (typeof setupHamburgerMenu === "function") {
         setupHamburgerMenu();
       }
     }, 100);
