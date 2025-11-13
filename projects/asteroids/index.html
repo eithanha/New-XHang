@@ -6,10 +6,62 @@
     <title>Asteroids</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
-    <script src="ship.js"></script>
-    <script src="asteroid.js"></script>
-    <script src="laser.js"></script>
-    <script src="main.js"></script>
+    <script>
+      // Dynamic script loader with fallback
+      function loadScript(src, onError) {
+        return new Promise(function(resolve, reject) {
+          var script = document.createElement('script');
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = function() {
+            console.warn('Failed to load ' + src + ', trying alternative paths...');
+            if (onError) {
+              onError();
+            }
+            reject();
+          };
+          document.head.appendChild(script);
+        });
+      }
+
+      // Try to load scripts with fallback paths
+      var scriptsToLoad = [
+        { src: 'ship.js', altPaths: ['./ship.js', '/projects/asteroids/ship.js'] },
+        { src: 'asteroid.js', altPaths: ['./asteroid.js', '/projects/asteroids/asteroid.js'] },
+        { src: 'laser.js', altPaths: ['./laser.js', '/projects/asteroids/laser.js'] }
+      ];
+
+      var loadPromises = [];
+      scriptsToLoad.forEach(function(scriptInfo) {
+        var promise = loadScript(scriptInfo.src).catch(function() {
+          // Try alternative paths sequentially
+          var currentPromise = Promise.reject();
+          scriptInfo.altPaths.forEach(function(altPath) {
+            currentPromise = currentPromise.catch(function() {
+              return loadScript(altPath);
+            });
+          });
+          return currentPromise.catch(function() {
+            throw new Error('Could not load ' + scriptInfo.src + ' from any path');
+          });
+        });
+        loadPromises.push(promise);
+      });
+
+      // Load main.js after all other scripts
+      Promise.all(loadPromises).then(function() {
+        console.log('All game scripts loaded successfully.');
+        var mainScript = document.createElement('script');
+        mainScript.src = 'main.js';
+        document.head.appendChild(mainScript);
+      }).catch(function(error) {
+        console.error('Error loading game scripts:', error);
+        // Still try to load main.js
+        var mainScript = document.createElement('script');
+        mainScript.src = 'main.js';
+        document.head.appendChild(mainScript);
+      });
+    </script>
     <style>
       body {
         padding: 0;

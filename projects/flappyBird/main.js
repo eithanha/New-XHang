@@ -26,11 +26,41 @@ function preload() {
 
 function setup() {
   createCanvas(400, 700);
-  bird = new Bird(birdImg);
+
+  // Wait for classes to load if they're not ready yet
+  var attempts = 0;
+  var maxAttempts = 50; // Wait up to 5 seconds (50 * 100ms)
+
+  function tryInitialize() {
+    attempts++;
+    if (typeof Bird !== "undefined" && typeof PipePair !== "undefined") {
+      bird = new Bird(birdImg);
+      console.log("Game initialized successfully.");
+    } else if (attempts < maxAttempts) {
+      setTimeout(tryInitialize, 100);
+    } else {
+      console.error(
+        "Failed to initialize game after " + maxAttempts * 100 + "ms."
+      );
+      console.error("Missing classes:", {
+        Bird: typeof Bird !== "undefined",
+        PipePair: typeof PipePair !== "undefined",
+      });
+      console.error(
+        "Please check the browser's Network tab to see if bird.js and pipe-pair.js loaded successfully."
+      );
+    }
+  }
+
+  tryInitialize();
 }
 
 function draw() {
   background(bg);
+
+  if (!bird || typeof bird.update !== "function") {
+    return;
+  }
 
   if (!gameOver) {
     bird.update();
@@ -61,6 +91,12 @@ function draw() {
 }
 
 function addPipes() {
+  if (typeof PipePair === "undefined") {
+    console.error(
+      "PipePair class is not defined. Make sure pipe-pair.js is loaded before main.js"
+    );
+    return;
+  }
   const gapHeight = 150;
   pipes.push(
     new PipePair(
@@ -92,6 +128,9 @@ function renderPipes() {
 }
 
 function collision(bird, pipe) {
+  if (typeof Bird === "undefined" || typeof PipePair === "undefined") {
+    return false;
+  }
   const birdTop = bird.y - Bird.WIDTH / 2;
   const birdBottom = bird.y + Bird.WIDTH / 2;
   const birdLeft = Bird.X_POSITION - Bird.WIDTH / 2;
@@ -106,6 +145,10 @@ function collision(bird, pipe) {
 }
 
 function keyPressed() {
+  if (!bird || typeof bird.up !== "function") {
+    return;
+  }
+
   if (keyCode === SPACE_BAR && !gameOver) {
     bird.up();
   } else if (keyCode === RESET_KEY && gameOver) {
@@ -113,7 +156,11 @@ function keyPressed() {
   }
 }
 function resetGame() {
-  bird = new Bird(birdImg);
-  pipes.length = 0;
-  gameOver = false;
+  if (typeof Bird !== "undefined") {
+    bird = new Bird(birdImg);
+    pipes.length = 0;
+    gameOver = false;
+  } else {
+    console.error("Bird class is not defined. Cannot reset game.");
+  }
 }
